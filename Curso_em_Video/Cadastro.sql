@@ -130,3 +130,60 @@ ORDER BY nome, ano;
 SELECT nome, carga, totaulas
 FROM cursos
 WHERE carga > 30 AND totaulas < 50;
+
+-- ----------------------------------------------------------------------
+
+-- Busca que comecem ou terminem por letras/palavras especificas:
+SELECT * FROM cursos
+WHERE nome LIKE "%a%";
+
+SELECT * FROM cursos
+WHERE nome NOT LIKE "ph%p%";
+
+SELECT * FROM cursos
+WHERE nome NOT LIKE "p_p%";
+
+SELECT * FROM cursos
+WHERE nome NOT LIKE "%silva%";
+
+-- Busca agrupando iguais:
+SELECT DISTINCT nacionalidade 
+FROM gafanhotos
+ORDER BY nacionalidade;
+
+
+
+-- FUNÇÕES DE AGREGAÇÃO:
+
+-- Retorna a quantidade:
+SELECT count(carga) AS qtd
+FROM cursosa;
+
+-- Retorna o MAIOR valor:
+SELECT MAX(carga) AS maxCarga
+FROM cursos;
+
+SELECT MAX(totaulas) AS maxCarga
+FROM cursos
+WHERE ano = 2016;
+
+-- Retorna o MENOR valor:
+SELECT nome, MIN(totaulas) AS minCarga
+FROM cursos
+WHERE ano = 2016;
+
+-- Retorna a SOMA dos valores:
+SELECT SUM(totaulas)
+FROM cursos
+WHERE ano = 2016;
+
+-- Retorna a MÉDIA dos valores:
+SELECT AVG(totaulas)
+FROM cursos
+WHERE ano = 2016;
+
+-- CASO TENHA ALGUM ERRO AO RODAR UM DOS CODIGOS ACIMA, USE ESSES COMANDOS E TENTE NOVAMENTE.
+-- Desativa
+SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+-- Ativar
+SET sql_mode=(SELECT CONCAT(@@sql_mode,'ONLY_FULL_GROUP_BY',''));*
