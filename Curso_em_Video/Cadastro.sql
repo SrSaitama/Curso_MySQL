@@ -187,3 +187,48 @@ WHERE ano = 2016;
 SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 -- Ativar
 SET sql_mode=(SELECT CONCAT(@@sql_mode,'ONLY_FULL_GROUP_BY',''));*
+
+
+-- RESPOSTAS DOS EXERCÍCIOS DA AULA
+
+-- 1
+SELECT nome 
+FROM gafanhotos
+WHERE sexo = 'F';
+
+-- 2
+SELECT * FROM gafanhotos
+WHERE nascimento BETWEEN '2000-01-01' AND '2015-12-31';
+
+-- 3
+SELECT nome 
+FROM gafanhotos
+WHERE profissao = 'Programador';
+
+-- 4
+SELECT * FROM gafanhotos
+WHERE sexo = 'F' AND nacionalidade =  'Brasil' AND nome LIKE 'J%';
+
+-- 5 
+SELECT nome 
+FROM gafanhotos
+WHERE sexo = 'M' AND nome LIKE '%Silva' AND nacionalidade != 'Brasil' AND peso < 100;
+
+-- 6
+SELECT MAX(altura) 
+FROM gafanhotos
+WHERE sexo = 'M' AND nacionalidade = 'Brasil';
+
+-- 7
+SELECT AVG(peso)
+FROM gafanhotos;
+
+-- 8
+SELECT MIN(peso)
+FROM gafanhotos
+WHERE sexo = 'F' AND nacionalidade != 'Brasil' AND nascimento BETWEEN '1990-01-01' AND '2000-12-31';
+
+-- 9 
+SELECT count(altura)
+FROM gafanhotos
+WHERE sexo = 'F' AND altura > 1.90;
