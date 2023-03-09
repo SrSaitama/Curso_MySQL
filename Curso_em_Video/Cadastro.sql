@@ -32,3 +32,30 @@ VALUES (DEFAULT, 'Arelina', '1985-05-22', 'F', '86.50', '1.60', 'Brasil'),
 -- VER OS DADOS DA TABELA:
 SELECT * FROM Pessoas;
 
+
+INSERT INTO Cursos VALUES 
+(DEFAULT, 'HTML4', 'Curso de HTML5', '40', '37', '2014'),
+(DEFAULT, 'Java', 'Curso de Java - Básico', '10', '29', '2000'),
+(DEFAULT, 'MySQL', 'Curso de MySQL', '20', '39', '2005'),
+(DEFAULT, 'PGP', 'Curso de PHP - Iniciantes', '40', '20', '2010');
+
+-- ATUALIZAR DADOS DA TABELA:
+UPDATE Cursos 
+SET nome = "HTML5"
+WHERE id = 1;
+
+UPDATE Cursos 
+SET carga = 40
+WHERE id = 2;
+
+UPDATE Cursos 
+SET nome = "PHP", ano = 2018
+WHERE id = 4;
+
+-- DELETAR UM DADO/LINHA DA TABELA:
+DELETE FROM Cursos
+WHERE id = 2;
+
+-- DELETAR TODOS OS DADOS/LINHAS DA TABELA:
+TRUNCATE TABLE Cursos;
+
